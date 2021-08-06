@@ -16,6 +16,9 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    @Enumerated(value = EnumType.STRING) // ORDINAL 주의
+    private MemberType type;
+
     // 양방향 연관관계 편의 메소드
     public void changeTeam(Team team){
         this.team = team;
@@ -52,6 +55,14 @@ public class Member {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public MemberType getType() {
+        return type;
+    }
+
+    public void setType(MemberType type) {
+        this.type = type;
     }
 
     @Override
